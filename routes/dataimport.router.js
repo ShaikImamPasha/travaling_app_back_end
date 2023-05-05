@@ -8,7 +8,7 @@ const router=express.Router();
 router.route("/")
    .post(async (req,res)=>{
     try{
-        await Hotel.deleteMany({})
+        await Hotel.deleteMany({}) 
     const hotalDB=await Hotel.insertMany(hotals.data);
     res.json({hotalDB});
    }
