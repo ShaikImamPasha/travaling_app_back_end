@@ -1,13 +1,18 @@
 var express=require("express");
-var hotalRouter=require("./routes/hotal.router")
+var mongoose=require("mongoose");
+var hotalRouter=require("./routes/hotal.router");
+var connectDB=require("./config/dbconfig");
+var insertdata=require("./routes/dataimport.router");
 var app=express();
+connectDB();
+
 var PORT=3300;
 app.use(express.json());
-app.get("/",(req,res)=>{
-    res.send("hii");
-})
-
+app.use("/api/insert",insertdata);
 app.use("/api/hotels",hotalRouter);
-app.listen(process.env.PORT || PORT,()=>{
+mongoose.connection.once("open",()=>{
+    console.log("connected to db");
+    app.listen(process.env.PORT || PORT,()=>{
     console.log("server runing");
+})
 })
