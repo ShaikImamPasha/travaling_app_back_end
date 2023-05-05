@@ -1,16 +1,16 @@
 var mongoose=require("mongoose");
 var express=require("express");
 
-var Hotel=require("../model/hotal.model");
-var hotals=require("../data/hotels");
+var Catagery=require("../model/catagery.model");
+var Catagerys=require("../data/catagery");
 const router=express.Router();
 
 router.route("/")
    .post(async (req,res)=>{
     try{
-        await Hotel.deleteMany({})
-    const hotalDB=await Hotel.insertMany(hotals.data);
-    res.json({hotalDB});
+       Catagery.deleteMany({})
+       var catageryDB=await Catagery.insertMany(Catagerys.data);
+       res.json({catageryDB});
    }
 catch(error){
     console.log(error);

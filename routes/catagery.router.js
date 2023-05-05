@@ -1,15 +1,10 @@
 const express=require("express");
 const router=express.Router();
-const hotals=require("../model/hotal.model");
+const catagery=require("../model/catagery.model");
 router.route("/")
     .get(async (req,res)=>{
-        const catagiry=req.query.catagiry;
-        try{
-            if(catagiry){
-           var hot=await hotals.find({ category:catagiry});
-            }else{
-                var hot=await hotals.find({});
-            }
+       try{
+           var hot=await catagery.find({});
            hot? res.json(hot):res.status(404).json({message: "conud not fetch"});
         }
         catch(error){
