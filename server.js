@@ -3,7 +3,9 @@ const bodyParser=require('body-parser');
 var cors=require("cors");
 var app=express();
 app.use(bodyParser.json()); 
-app.use(cors); 
+app.use(cors({
+    origin: "http://localhost:3000"
+})); 
 var mongoose=require("mongoose");
 var hotalRouter=require("./routes/hotal.router");
 var connectDB=require("./config/dbconfig");
