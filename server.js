@@ -10,12 +10,13 @@ var catagery=require("./routes/catageryimport.router");
 var catagery_detailss=require("./routes/catagery.router");
 var single_hotal=require("./routes/singlehotel.router");
 var user=require("./routes/user.router");
+var whishlist=require("./routes/whislist.router");
 var app=express();
 connectDB();
 
 var PORT=3300;
 app.use(express.json());
-app.use("/api/auth",user);
+app.use("/api/whishlist",whishlist);
 app.use("/api/auth",user);
 app.use("/api/singelhotal",single_hotal);
 app.use("/api/catagery_insert",catagery);
