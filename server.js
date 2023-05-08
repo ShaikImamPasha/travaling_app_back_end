@@ -1,12 +1,9 @@
 var express=require("express");
 const bodyParser=require('body-parser'); 
-var c=require("cors");
+var cors=require('cors');
 var app=express();
+app.use(cors()); 
 app.use(bodyParser.json()); 
-app.use(c({
-    origin: "http://localhost:3000",
-    methods:["GET","POST","PUT","DELETE"],
-})); 
 var mongoose=require("mongoose");
 var hotalRouter=require("./routes/hotal.router");
 var connectDB=require("./config/dbconfig");
