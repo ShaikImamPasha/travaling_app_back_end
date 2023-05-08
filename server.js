@@ -13,7 +13,6 @@ var catagery_detailss=require("./routes/catagery.router");
 var single_hotal=require("./routes/singlehotel.router");
 var user=require("./routes/user.router");
 var whishlist=require("./routes/whislist.router");
-var app=express();
 connectDB();
 
 var PORT=3300;
