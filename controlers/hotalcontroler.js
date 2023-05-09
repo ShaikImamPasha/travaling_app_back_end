@@ -4,8 +4,6 @@ var hotal= async (req,res)=>{
         try{
             if(catagiry){
            var hot=await hotals.find({ category:catagiry});
-            }else{
-                var hot=await hotals.find({});
             }
            hot? res.json(hot):res.status(404).json({message: "conud not fetch"});
         }
