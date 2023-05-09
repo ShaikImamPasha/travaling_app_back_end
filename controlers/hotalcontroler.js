@@ -1,7 +1,6 @@
 var hotals=require("../model/hotal.model");
 var hotal= async (req,res)=>{
         const category=req.query.category;
-        var c="Tiny Homes";
         try{
             if(category){
            var hot=await hotals.find({category:category});
