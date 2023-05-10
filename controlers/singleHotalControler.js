@@ -1,8 +1,8 @@
 var hotal=require("../model/hotal.model");
 var single_hotal=async (req,res)=>{
     const {id}=req.params;
-    try{
-    var hotal_detail=await hotal.findById(id);
+           try{
+    var hotal_detail=await hotal.findById({_id: id});
        res.json(hotal_detail);
     }
     catch(error){
