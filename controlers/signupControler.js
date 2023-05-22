@@ -9,11 +9,11 @@ var signUp=async (req,res)=>{
             password: cripto.AES.encrypt(req.body.password,process.env.PASSWORD_KEY).toString()
           });
           var saveduser=await userObject.save();
-         res.status(201).json(req.body);
+         res.status(201).json(saveduser);
      }
      catch(error){
         console.log(error);
-        res.json({message: "not register duo to server problem"});
+        res.json({message: error});
      }
 }
 module.exports=signUp;
