@@ -13,6 +13,7 @@ var catagery_detailss=require("./routes/catagery.router");
 var single_hotal=require("./routes/singlehotel.router");
 var user=require("./routes/user.router");
 var whishlist=require("./routes/whislist.router");
+var pr=require("./routes/pr.router");
 connectDB();
 
 var PORT=3300;
@@ -24,6 +25,7 @@ app.use("/api/catagery_insert",catagery);
 app.use("/api/insert",insertdata);
 app.use("/api/hotels_details",hotalRouter);
 app.use("/api/catagery_details",catagery_detailss);
+app.use("/api/proxy",pr)
 
 mongoose.connection.once("open",()=>{
     console.log("connected to db");
